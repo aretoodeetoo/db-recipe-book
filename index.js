@@ -16,3 +16,18 @@ server.use(express.json());
 server.use(helmet());
 
 // Endpoints Below
+
+// Get All dishes
+server.get('/api/dishes', async (req, res) => {
+    try {
+        const dishes = await db('dishes');
+        res.status(200).json(dishes);
+    } catch(error) {
+        res.status(500).json(error);
+    }
+});
+
+const port = 3300;
+server.listen(port, function() {
+    console.log(`Server listening on port 3300`);
+})
