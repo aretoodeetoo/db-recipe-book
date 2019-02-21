@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
         tbl.increments();
         
         tbl.string('Name', 255).notNullable();
+        tbl.string('Instructions');
 
         tbl
             .integer('dish_id')
