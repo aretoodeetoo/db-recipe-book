@@ -17,3 +17,16 @@ function getById(id){
         .where({ id })
         .first();
 }
+
+function insert(recipe){
+    return db('recipes')
+        .then(ids => 
+            {return getById(ids[0])}
+        );
+}
+
+function update(id, changes){
+    return db('recipes')
+        .where('id', id)
+        .del();
+}
