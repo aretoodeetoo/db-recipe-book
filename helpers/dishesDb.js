@@ -19,6 +19,13 @@ function getById(id){
         .first();
 }
 
+function getDishRecipes(dishId){
+    return db('recipes as r')
+        .join('dishes as d', 'd.id', 'r.dish_id')
+        .select('r.id', 'r.text', 'd.name as dishRecipes')
+        .where('r.dish_id', dishId);
+}
+
 function insert (dish){
     return db('dishes')
         .insert(dish)
