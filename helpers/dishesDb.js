@@ -35,4 +35,6 @@ function update(id, changes){
 
 function remove(id){
     return db('dishes')
+        .where('id', id)
+        .del();
 }
